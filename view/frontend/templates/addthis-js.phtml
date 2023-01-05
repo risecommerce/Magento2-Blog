@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © Risecommerce (support@risecommerce.com). All rights reserved.
+ * 
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/** @var $block \Risecommerce\Blog\Block\Social\AddThis */
+?>
+<script type="text/javascript">
+    var addthis_config = {
+        "ui_language": '<?= $block->escapeHtml($block->getAddThisLanguage()) ?>',
+        "data_track_clickback":false
+    }
+</script>
+<script type="text/javascript" async
+        src="<?= '/' . '/' ?>s7.addthis.com/js/300/addthis_widget.js#pubid=<?= $block->escapeUrl($block->getAddThisPubId()) ?>"></script>

@@ -1,0 +1,41 @@
+{
+    "name": "risecommerce/module-blog-extension",
+    "description": "Implements Blog functionality on Magento 2 store",
+    "type": "magento2-module",
+    "version": "1.0.1",
+    "require": {
+        "risecommerce/module-core" : ">=1.0.1",
+        "risecommerce/module-blog-graph-ql" : ">=1.0.1",
+        "risecommerce/module-blog-amp" : ">=1.0.1",
+        "php": "~7.0.13|~7.1.0|~7.2.0|~7.3.0|~7.4.0|~8.1|^8.1"
+        },
+    "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+    "authors": [
+    {
+      "name": "Risecommerce",
+      "email": "support@risecommerce.com",
+      "homepage": "https://www.risecommerce.com",
+      "role": "Technical Support"
+    }
+  ],
+    "minimum-stability": "dev", 
+  "keywords": [
+    "magento 2",
+    "magento2 blog",
+    "magento blog",
+    "magento blog related ",
+    "risecommerce"
+  ],
+   
+    "autoload": {
+        "files": [ 
+            "registration.php"
+        ],
+        "psr-4": {
+            "Risecommerce\\Blog\\": ""
+        }
+    }
+}

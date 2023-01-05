@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © Risecommerce (support@risecommerce.com). All rights reserved.
+ * 
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+
+/**
+ * @var \Risecommerce\Blog\Block\ViewsCount $block
+ */
+?>
+<script>
+    require(['jquery', 'domReady!'], function($){
+        setTimeout(function(){
+            $.ajax({
+                url:"<?= $block->escapeUrl($block->getCounterUrl());?>",
+                type:'POST',
+                dataType: 'json',
+                success: function(response) { }
+            })
+        }, 5000);
+    });
+
+</script>
+
+

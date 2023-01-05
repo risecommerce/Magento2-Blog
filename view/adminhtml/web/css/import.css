@@ -1,0 +1,16 @@
+/**
+ * Copyright © Risecommerce (support@risecommerce.com). All rights reserved.
+ * 
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+
+.rcblog-imports {width:100%;}
+.rcblog-imports .item {width:16%; display: inline-block;min-width: 270px;}
+.rcblog-imports .item {text-align: center; margin:0px; padding:0px;}
+.rcblog-imports .item .itm-hld  {margin: 10px; padding: 20px; background: #373330; cursor: pointer;}
+.rcblog-imports .item .itm-hld:hover {background:#524D49; }
+.rcblog-imports .item .img {width:200px; height:200px; max-width: 200px; margin:5px;}
+.rcblog-imports .item .more {background: #AAA6A0; color: white; padding-top: 30px; font-weight: 700;}
+.rcblog-imports .item .lable {font-weight: 700; font-size:16px; color: #F7F3EB;}
+

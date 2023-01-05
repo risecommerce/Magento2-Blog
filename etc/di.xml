@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Risecommerce (support@risecommerce.com). All rights reserved.
+ * 
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Risecommerce\Blog\Api\AuthorInterface" type="Risecommerce\Blog\Model\Author" />
+    <preference for="Risecommerce\Blog\Api\AuthorResourceModelInterface" type="Risecommerce\Blog\Model\ResourceModel\Author" />
+    <preference for="Risecommerce\Blog\Api\AuthorCollectionInterface" type="Risecommerce\Blog\Model\ResourceModel\Author\Collection" />
+    <preference for="Risecommerce\Blog\Api\SitemapConfigInterface" type="Risecommerce\Blog\Model\Sitemap\SitemapConfig" />
+    <preference for="Risecommerce\Blog\Api\PostManagementInterface" type="Risecommerce\Blog\Model\PostManagement" />
+    <preference for="Risecommerce\Blog\Api\CategoryManagementInterface" type="Risecommerce\Blog\Model\CategoryManagement" />
+    <preference for="Risecommerce\Blog\Api\PostRepositoryInterface" type="Risecommerce\Blog\Model\PostRepository" />
+    <preference for="Risecommerce\Blog\Api\CategoryRepositoryInterface" type="Risecommerce\Blog\Model\CategoryRepository" />
+    <preference for="Risecommerce\Blog\Api\TagRepositoryInterface" type="Risecommerce\Blog\Model\TagRepository" />
+    <preference for="Risecommerce\Blog\Api\AuthorRepositoryInterface" type="Risecommerce\Blog\Model\AuthorRepository" />
+    <preference for="Risecommerce\Blog\Api\CommentRepositoryInterface" type="Risecommerce\Blog\Model\CommentRepository" />
+    <preference for="Risecommerce\Blog\Api\ShortContentExtractorInterface" type="Risecommerce\Blog\Model\ShortContentExtractor" />
+    <!-- deprecated <preference for="Magento\Sitemap\Model\Sitemap" type="Risecommerce\Blog\Model\Sitemap" /> -->
+    <preference for="Risecommerce\Blog\Api\UrlResolverInterface" type="Risecommerce\Blog\Model\UrlResolver" />
+    <virtualType name="Risecommerce\Blog\ImageUpload" type="Risecommerce\Blog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">risecommerce_blog/tmp</argument>
+            <argument name="basePath" xsi:type="string">risecommerce_blog</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Risecommerce\Blog\Controller\Adminhtml\Post\Upload\FeaturedImg">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Risecommerce\Blog\ImageUpload</argument>
+        </arguments>
+    </type>
+    <type name="Risecommerce\Blog\Controller\Adminhtml\Post\Upload\OgImg">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Risecommerce\Blog\ImageUpload</argument>
+        </arguments>
+    </type>
+    <type name="Risecommerce\Blog\Controller\Adminhtml\Post\Upload\Gallery">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Risecommerce\Blog\ImageUpload</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Sitemap\Model\Sitemap">
+        <plugin name="magento_sitemap_model_sitemap_risecommerce_blog"
+                type="Risecommerce\Blog\Plugin\Magento\Sitemap\SitemapPlugin" sortOrder="10"/>
+    </type>
+
+    <type name="MageWorx\XmlSitemap\Model\Sitemap">
+        <plugin name="mageworks_sitemap_model_sitemap_risecommerce_blog"
+                type="Risecommerce\Blog\Plugin\Magento\Sitemap\SitemapPlugin" sortOrder="10"/>
+    </type>
+
+    <type name="Amasty\XmlSitemap\Model\Sitemap">
+        <plugin name="amasty_sitemap_model_sitemap_risecommerce_blog"
+                type="Risecommerce\Blog\Plugin\Magento\Sitemap\SitemapPlugin" sortOrder="10"/>
+    </type>
+
+    <type name="Amasty\XmlSitemap\Model\XmlGenerator">
+        <plugin name="amasty_sitemap_model_sitemap_risecommerce_blog"
+                type="Risecommerce\Blog\Plugin\Magento\Sitemap\AmastySitemapPlugin" sortOrder="10"/>
+    </type>
+
+    <type name="Magento\AdminGws\Model\Models">
+        <plugin name="risecommerce_blog_plugin_admingws_model_models_plugin" type="\Risecommerce\Blog\Plugin\Magento\AdminGws\Model\ModelsPlugin" sortOrder="10"/>
+    </type>
+
+    <virtualType name="Risecommerce\Blog\Block\Widget\PostLink" type="Risecommerce\Blog\Block\Widget\Link">
+        <arguments>
+            <argument name="modelRepository" xsi:type="object">Risecommerce\Blog\Api\PostRepositoryInterface</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Risecommerce\Blog\Block\Widget\CategoryLink" type="Risecommerce\Blog\Block\Widget\Link">
+        <arguments>
+            <argument name="modelRepository" xsi:type="object">Risecommerce\Blog\Api\CategoryRepositoryInterface</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Risecommerce\Blog\Block\Widget\TagLink" type="Risecommerce\Blog\Block\Widget\Link">
+        <arguments>
+            <argument name="modelRepository" xsi:type="object">Risecommerce\Blog\Api\TagRepositoryInterface</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Risecommerce\Blog\Block\Widget\AuthorLink" type="Risecommerce\Blog\Block\Widget\Link">
+        <arguments>
+            <argument name="modelRepository" xsi:type="object">Risecommerce\Blog\Api\AuthorRepositoryInterface</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Risecommerce\Blog\Model\TemplatePool">
+        <arguments>
+            <argument name="templates" xsi:type="array">
+                <item name="blog_post_list" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="label" xsi:type="string">Use System Settings</item>
+                        <item name="value" xsi:type="string"></item>
+                        <item name="template" xsi:type="string"></item>
+                    </item>
+                    <item name="list" xsi:type="array">
+                        <item name="label" xsi:type="string">Modern (List)</item>
+                        <item name="value" xsi:type="string">list-modern</item>
+                        <item name="template" xsi:type="string">Risecommerce_Blog::post/list-modern.phtml</item>
+                    </item>
+                </item>
+                <item name="blog_post_view" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="label" xsi:type="string">Use System Settings</item>
+                        <item name="value" xsi:type="string"></item>
+                        <item name="template" xsi:type="string"></item>
+                    </item>
+                    <item name="modern" xsi:type="array">
+                        <item name="label" xsi:type="string">Modern</item>
+                        <item name="value" xsi:type="string">modern</item>
+                        <item name="template" xsi:type="string">Risecommerce_Blog::post/view-modern.phtml</item>
+                    </item>
+                </item>
+                <item name="blog_post_view_next_prev" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="label" xsi:type="string">Default (Next / Previous Labels)</item>
+                        <item name="value" xsi:type="string"></item>
+                        <item name="template" xsi:type="string">Risecommerce_Blog::post/view/nextprev.phtml</item>
+                    </item>
+                    <item name="modern" xsi:type="array">
+                        <item name="label" xsi:type="string">Modern (Next / Previous Post Titles)</item>
+                        <item name="value" xsi:type="string">modern</item>
+                        <item name="template" xsi:type="string">Risecommerce_Blog::post/view/nextprev-modern.phtml</item>
+                    </item>
+                </item>
+                <item name="blog_post_view_related_post" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="label" xsi:type="string">Use System Settings</item>
+                        <item name="value" xsi:type="string"></item>
+                        <item name="template" xsi:type="string"></item>
+                    </item>
+                </item>
+                <item name="blog_post_sidebar_posts" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="label" xsi:type="string">Use System Settings</item>
+                        <item name="value" xsi:type="string"></item>
+                        <item name="template" xsi:type="string"></item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Risecommerce\Blog\Model\Config\Source\PostListTemplate" type="Risecommerce\Blog\Model\Config\Source\Template">
+        <arguments>
+            <argument name="templateType" xsi:type="string">blog_post_list</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Risecommerce\Blog\Model\Config\Source\PostViewTemplate" type="Risecommerce\Blog\Model\Config\Source\Template">
+        <arguments>
+            <argument name="templateType" xsi:type="string">blog_post_view</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Risecommerce\Blog\Model\Config\Source\NextPrevPostTemplate" type="Risecommerce\Blog\Model\Config\Source\Template">
+        <arguments>
+            <argument name="templateType" xsi:type="string">blog_post_view_next_prev</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Risecommerce\Blog\Model\Config\Source\RelatedPostTemplate" type="Risecommerce\Blog\Model\Config\Source\Template">
+        <arguments>
+            <argument name="templateType" xsi:type="string">blog_post_view_related_post</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Risecommerce\Blog\Model\Config\Source\SidebarPostsTemplate" type="Risecommerce\Blog\Model\Config\Source\Template">
+        <arguments>
+            <argument name="templateType" xsi:type="string">blog_post_sidebar_posts</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\PageBuilder\Model\UpgradableEntitiesPool">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="risecommerce_blog_post" xsi:type="array">
+                    <item name="identifier" xsi:type="string">post_id</item>
+                    <item name="fields" xsi:type="array">
+                        <item name="content" xsi:type="boolean">true</item>
+                        <item name="short_content" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+                <item name="risecommerce_blog_category" xsi:type="array">
+                    <item name="identifier" xsi:type="string">category_id</item>
+                    <item name="fields" xsi:type="array">
+                        <item name="content" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+                <item name="risecommerce_blog_tag" xsi:type="array">
+                    <item name="identifier" xsi:type="string">tag_id</item>
+                    <item name="fields" xsi:type="array">
+                        <item name="content" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

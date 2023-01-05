@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Risecommerce (support@risecommerce.com). All rights reserved.
+ * 
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Risecommerce_Blog::elements" title="Blog" module="Risecommerce_Blog" parent="Magento_Backend::content" sortOrder="10"  resource="Risecommerce_Blog::elements"/>
+        <add id="Risecommerce_Blog::post" title="Posts" module="Risecommerce_Blog" parent="Risecommerce_Blog::elements" sortOrder="10" action="blog/post" resource="Risecommerce_Blog::post"/>
+        <add id="Risecommerce_Blog::category" title="Categories" module="Risecommerce_Blog" parent="Risecommerce_Blog::elements" sortOrder="20" action="blog/category" resource="Risecommerce_Blog::category"/>
+        <add id="Risecommerce_Blog::tag" title="Tags" module="Risecommerce_Blog" parent="Risecommerce_Blog::elements" sortOrder="25" action="blog/tag" resource="Risecommerce_Blog::tag"/>
+        <add id="Risecommerce_Blog::comment" title="Comments" module="Risecommerce_Blog" parent="Risecommerce_Blog::elements" sortOrder="30" action="blog/comment" resource="Risecommerce_Blog::comment"/>
+        <add id="Risecommerce_Blog::import" title="Import" module="Risecommerce_Blog" parent="Risecommerce_Blog::elements" sortOrder="40" action="blog/import" resource="Risecommerce_Blog::import"/>
+        <add id="Risecommerce_Blog::widget" title="Add Blog Blocks via Widgets" module="Risecommerce_Blog" parent="Risecommerce_Blog::elements" sortOrder="45" action="adminhtml/widget_instance" resource="Magento_Widget::widget_instance"/>
+        <add id="Risecommerce_Blog::config_blog" title="Configuration" module="Risecommerce_Blog" parent="Risecommerce_Blog::elements" sortOrder="50" action="adminhtml/system_config/edit/section/rcblog" resource="Risecommerce_Blog::config_blog"/>
+    </menu>
+</config>

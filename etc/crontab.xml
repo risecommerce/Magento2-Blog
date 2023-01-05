@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © Risecommerce (support@risecommerce.com). All rights reserved.
+ * 
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="risecommerce_blog_default">
+        <job instance="Risecommerce\Blog\Cron\ReSaveExistingPosts" method="execute" name="risecommerce_blog_cron_resave_existing_posts">
+            <schedule>* * * * *</schedule>
+        </job>
+    </group>
+</config>

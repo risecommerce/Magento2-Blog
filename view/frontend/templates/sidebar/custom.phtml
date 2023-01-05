@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © Risecommerce (support@risecommerce.com). All rights reserved.
+ * 
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/**
+ * Blog sidebar custom HTML template
+ *
+ * @var $block \Risecommerce\Blog\Block\Sidebar\Search
+ */
+?>
+<?php $content = $block->getContent() ?>
+<?php if ($content) { ?>
+    <div class="widget block blog-custom" >
+        <?= /*@noEscape*/ $content ?>
+    </div>
+<?php } ?>

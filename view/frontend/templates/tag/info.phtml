@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © Risecommerce (support@risecommerce.com). All rights reserved.
+ * 
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/**
+ * Blog tag info template
+ *
+ * @var $block \Risecommerce\Blog\Block\Tag\Info
+ */
+?>
+
+<?php if ($content = $block->getContent()): ?>
+    <div class="tag-content"><?= /*@noEscape*/ $content ?></div>
+<?php endif ?>

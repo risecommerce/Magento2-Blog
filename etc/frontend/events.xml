@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Risecommerce (support@risecommerce.com). All rights reserved.
+ * 
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_action_predispatch_blog">
+        <observer name="risecommerce_blog_controller_action_predispatch" instance="Risecommerce\Blog\Observer\PredispathFrontendBlogActionControllerObserver" />
+    </event>
+    <event name="page_block_html_topmenu_gethtml_before">
+        <observer name="risecommerce_blog_topmenu_observer" instance="Risecommerce\Blog\Observer\PageBlockHtmlTopmenuBethtmlBeforeObserver" />
+    </event>
+    <event name="layout_load_before">
+        <observer name="risecommerce_blog_layout_load_before" instance="Risecommerce\Blog\Observer\LayoutLoadBeforeObserver" />
+    </event>
+    <event name="layout_generate_blocks_after">
+        <observer name="categorySeo" instance="Risecommerce\Blog\Observer\LayoutGenerateBlocksAfter" />
+    </event>
+</config>
