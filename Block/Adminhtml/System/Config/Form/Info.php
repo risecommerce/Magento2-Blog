@@ -21,7 +21,7 @@ class Info extends \Risecommerce\Core\Block\Adminhtml\System\Config\Form\Info
      */
     protected function getModuleUrl()
     {
-        return 'https://mage' . 'fan.com?utm_source=m2admin_blog_config&utm_medium=link&utm_campaign=regular';
+        return 'https://risecommerce.com';
     }
 
     /**
