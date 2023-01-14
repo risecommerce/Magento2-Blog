@@ -1,11 +1,13 @@
 #Risecommerce Blog Module
 
 ##Support: 
-version - 2.3.x, 2.4.x
+version - 2.3.x, 2.4.x 
 
 ##How to install Extension
 
- Using Composer  composer require risecommerce/module-blog-extension:1.0.1
+ Using Composer  
+ 
+ composer require risecommerce/module-blog-extension:1.0.1
   
 #Enable Extension:
 - php bin/magento module:enable Risecommerce_Blog Risecommerce_Core Risecommerce_BlogAmp Risecommerce_BlogGraphQl
